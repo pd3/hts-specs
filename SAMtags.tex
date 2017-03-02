@@ -86,6 +86,7 @@ or
   {\tt OC} & Z & Original CIGAR \\
   {\tt OP} & i & Original mapping position \\
   {\tt OQ} & Z & Original base quality \\
+  {\tt PA} & Z & Previous Alignment \\
   {\tt PG} & Z & Program \\
   {\tt PQ} & i & Phred likelihood of the template \\
   {\tt PT} & Z & Read annotations for parts of the padded read sequence \\
@@ -176,6 +177,10 @@ Number of reported alignments that contains the query in the current record.
 
 \item[NM:i:\tagvalue{}]
 Edit distance to the reference, including ambiguous bases but excluding clipping.
+
+\item[PA:Z:\tagregex{{\tt}\emph{rname}{\tt,}\emph{pos}{\tt,}\emph{strand}{\tt,}\emph{CIGAR}{\tt,}\emph{mapQ}{\tt,}\emph{NM}{\tt;}}]
+Previous aligment of template prior to realignment/unalignment by subsequent tool. 
+\emph{NM} can be dropped if unknown, but both commas should remain for parsing. 
 
 \item[PQ:i:\tagvalue{}]
 Phred likelihood of the template, conditional on both the mapping being correct.
