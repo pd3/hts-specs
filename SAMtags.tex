@@ -241,20 +241,20 @@ Free-text comments.
 \item[BC:Z:\tagvalue{sequence}]
 Barcode sequence (Identifying the sample/library), with any quality scores (optionally) stored in the {\tt QT} tag.
 The {\tt BC} tag should match the {\tt QT} tag in length. 
-In the case of multiple unique molecular identifiers (e.g., one on each end of the template) the recommended implementation concatenates all the barcodes and qualities and places a dash (`{\tt -}') between the barcodes from the same template. 
+In the case of multiple unique molecular identifiers (e.g., one on each end of the template) the recommended implementation concatenates all the barcodes and qualities and places a hyphen (`{\tt -}') between the barcodes from the same template. 
 
 \item[QT:Z:\tagvalue{qualities}] 
 Phred quality of the sample-barcode sequence in the {\tt BC} (or {\tt RT}) tag. 
 Same encoding as {\sf QUAL}, i.e., Phred score + 33.
 See {\tt BC} for more detail.
 
-\item[BX:Z:\tagvalue{sequence}]
+\item[BX:Z:\tagvalue{sequence+}]
 Sequence bases from the unique molecular identifier. 
-These could be either corrected or uncorrected. Unlike MI, this may be non-unique in the file. 
+These could be either corrected or uncorrected. Unlike {\tt MI}, this may be non-unique in the file. 
 Should comprise of a sequence of bases possibly separated by hyphens as {\tt RX}.
-In case that the bases represent the corrected bases, the original sequence can be stored in {\tt RX} (similar to OQ storing the original qualities of bases.)
+In case that the bases represent the corrected bases, the original sequence can be stored in {\tt RX} (similar to {\tt OQ} storing the original qualities of bases.)
 
-\item[QX:Z:\tagvalue{qualities}] 
+\item[QX:Z:\tagvalue{qualities+}] 
 Phred quality of the unique molecular identifier sequence in the {\tt BX} tag. 
 Same encoding as {\sf QUAL}, i.e., Phred score + 33.
 The qualities here may have been corrected (Raw bases and qualities can be stored in {\tt RX} and {\tt QX} respectively.)
@@ -264,13 +264,13 @@ In the case of multiple unique molecular identifiers (e.g., one on each end of t
 \item[MI:Z:\tagvalue{str}]
 Molecular Identifier. 
 A unique ID within the SAM file for the source molecule from which this read is derived. 
-All reads with the same MI tag represent the group of reads derived from the same source molecule. 
+All reads with the same {\tt MI} tag represent the group of reads derived from the same source molecule. 
 
-\item[RX:Z:\tagvalue{sequence}] 
+\item[RX:Z:\tagvalue{sequence+}] 
 Raw (uncorrected) unique molecular identifier bases, with any quality scores (optionally) stored in the {\tt QX} tag. 
-In the case of multiple unique molecular identifiers (e.g., one on each end of the template) the recommended implementation concatenates all the barcodes and qualities with a dash (`{\tt -}') between the different barcodes.
+In the case of multiple unique molecular identifiers (e.g., one on each end of the template) the recommended implementation concatenates all the barcodes and qualities with a hyphen (`{\tt -}') between the different barcodes.
 
-\item[QX:Z:\tagvalue{qualities}] 
+\item[QX:Z:\tagvalue{qualities+}] 
 Phred quality of the unique molecular identifier sequence in the {\tt RX}.
 Same encoding as {\sf QUAL}, i.e., Phred score + 33.
 The {\tt RX} tags should match the {\tt QX} tag in length. 
