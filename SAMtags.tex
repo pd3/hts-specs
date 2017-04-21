@@ -251,8 +251,9 @@ See {\tt BC} for more detail.
 \item[RX:Z:\tagvalue{sequence+}]
 Sequence bases from the unique molecular identifier. 
 These could be either corrected or uncorrected. Unlike {\tt MI}, the value may be non-unique in the file. 
-Should comprise of a sequence of bases possibly separated by hyphens as {\tt BX}.
-In case that the bases represent the corrected bases, the original sequence can be stored in {\tt BX} (similar to {\tt OQ} storing the original qualities of bases.)
+Should comprise of a sequence of bases. 
+In the case of multiple unique molecular identifiers (e.g., one on each end of the template) the recommended implementation concatenates all the barcodes and qualities with a hyphen (`{\tt -}') between the different barcodes.
+If the bases represent corrected bases, the original sequence can be stored in {\tt BX} (similar to {\tt OQ} storing the original qualities of bases.)
 
 \item[QX:Z:\tagvalue{qualities+}] 
 Phred quality of the unique molecular identifier sequence in the {\tt BX} tag. 
@@ -267,7 +268,7 @@ A unique ID within the SAM file for the source molecule from which this read is 
 All reads with the same {\tt MI} tag represent the group of reads derived from the same source molecule. 
 
 \item[BX:Z:\tagvalue{sequence+}] 
-Raw (uncorrected) unique molecular identifier bases, with any quality scores (optionally) stored in the {\tt QX} tag. 
+Raw (uncorrected) unique molecular identifier bases, with any quality scores (optionally) stored in the {\tt BZ} tag. 
 In the case of multiple unique molecular identifiers (e.g., one on each end of the template) the recommended implementation concatenates all the barcodes and qualities with a hyphen (`{\tt -}') between the different barcodes.
 
 \item[BZ:Z:\tagvalue{qualities+}] 
